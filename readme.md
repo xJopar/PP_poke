@@ -17,6 +17,6 @@ usuario.
 # Instalacion
 
 1. Crear un entorno virtual, Activar el entorno virtual
-3. Instalar los requisitos
+2. Instalar los requisitos
    ` pip install -r requirements.txt`
-4. Ejecutar el archivo `app.py`
+3. Ejecutar el archivo `app.py`
