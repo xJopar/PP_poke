@@ -204,5 +204,4 @@ class Juego_Pokemon():
                 #self.cadena= self.cadena + "\n{} gano la batalla, tu perdiste. Te vas triste a curar a tu pokemon".format(randomEnemigo.nombre)
                 break
         return (self.cadena)                 
-        #cadena=player.batallar(enemigoRandom)
-        #return cadena
+
