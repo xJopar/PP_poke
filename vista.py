@@ -532,7 +532,7 @@ class Vista(Frame):
         self.fin=Labels(self.enviarnombreV,text='¡Nombre creado con exito!',font=('Arial',18,"bold"))
         self.fin.config(background='#ECE9D2',fg='#806D79')
         self.fin.place(x=80,y=180)           
-        genialBT= Boton(self.enviarnombreV,text='Genial',command=lambda:[self.enviarnombreV.destroy(),self.agregarNombreVen.destroy()] )
+        genialBT= Boton(self.enviarnombreV,text='Genial',command=lambda:[self.agregarNombreVen.destroy(),self.enviarnombreV.destroy()] )
         genialBT.config(font=("Verdana",10,"bold"),
                                             height=2,width=8) 
         genialBT.place(x=200,y=250)   
