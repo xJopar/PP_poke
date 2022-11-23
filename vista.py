@@ -565,8 +565,8 @@ class Vista(Frame):
         nombreEnemigosBT= Boton(self.enlistarV,text='Nombre\nEnemigos',command= self.enlistar_nombresEnemigos)
         nombreEnemigosBT.place(x=500,y=580) 
         #Boton para volver
-        volverBT= Boton_volver(self.enlistarV,text='Salir',command=lambda:[self.enlistarV.destroy(),self.agregarPokeFuegoVen.destroy(),self.agregarPokePlantaVen.destroy(),self.agregarPokeAguaVen.destroy()] )
-        volverBT.place(x=400,y=700)      
+        salirBT= Boton_volver(self.enlistarV,text='Salir',command=lambda:[self.agregarPokeFuegoVen.destroy(),self.agregarPokePlantaVen.destroy(),self.agregarPokeAguaVen.destroy(),self.enlistarV.destroy()] )
+        salirBT.place(x=400,y=700)      
     def enlistar_nombresPokemons(self):
         #Pokemons
         self.lista_objeto.config(state=NORMAL)
