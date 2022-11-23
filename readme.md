@@ -19,4 +19,4 @@ usuario.
 1. Crear un entorno virtual, Activar el entorno virtual
 3. Instalar los requisitos
    ` pip install -r requirements.txt`
-4. Ejecutar el archivo `Juego.py`
+4. Ejecutar el archivo `app.py`
