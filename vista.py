@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
 from juego import *
-import functools
 
 class Vista(Frame):
     #Hub
