@@ -1,5 +1,6 @@
 import random
-############################################################################################################################################
+
+#################################Persona#################################
 class Persona:
     def __init__(self, nombre=None,pokemon=None):
         self.nombre=nombre 
@@ -7,42 +8,32 @@ class Persona:
     # Impresion del nombre
     def __str__(self):
         return self.nombre
-    #  Operacion para mostrar el pokemon
-    def mostrar_pokemons(self):
-        print("Pokemons de {} es: {} con {} de vida y {} de ataque.".format(self.nombre,self.pokemon.especie,self.pokemon.vida,self.pokemon.danho)) 
 class Enemigo(Persona):
     def __init__(self, nombre=None, pokemon=None):  
-        super().__init__(nombre=nombre, pokemon=pokemon)  
+        super().__init__(nombre=nombre, pokemon=pokemon)
+    def __str__(self):
+        return '[*] {}'.format(self.nombre) 
+
 class Jugador(Persona):
+    def __str__(self):
+        return '{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}\t\t{}'.format(self.nombre,self.pokemon.nickname,self.pokemon.especie,self.pokemon.tipo,self.pokemon.danho,self.pokemon.vida,self.pokemon.debilidad)     
     def verpoke(self):
-        print("Tu pokemon {} es un: {} con daño {} y vida igual a {} ".format(self.pokemon.nickname,self.pokemon.especie,self.pokemon.danho,self.pokemon.vida))
-    def batallar(self,randomEnemigo=Enemigo):
-        print("\n\nHa empezado un duelo, {} vas a batallar contra {}.\n".format(self, randomEnemigo.nombre))
-        poke_rival= randomEnemigo.pokemon
-        while True:
-                victoria= self.pokemon.atacar(poke_rival)
-                if victoria:
-                    print("{} gano la batalla.".format(self))
-                    poke_rival.vida=poke_rival.vida_max
-                    print("{} va a llevar a su pokemon a curar.".format(randomEnemigo.nombre))
-                    break
-                derrota = poke_rival.atacar(self.pokemon)
-                if derrota:
-                    print("{} gano la batalla, tu perdiste. Te vas triste a curar a tu pokemon".format(randomEnemigo.nombre))
-                    self.curar_pokemon()
-                    break            
+        return 'Tu pokemon apodado {} es un {}\n con daño {} y vida igual a {}'.format(self.pokemon.nickname,self.pokemon.especie,self.pokemon.danho,self.pokemon.vida)                  
     def curar_pokemon(self):
         print("Curando a tu {} al 100%".format(self.pokemon.nickname))
         if not self.pokemon.vida == self.pokemon.vida_max:
             self.pokemon.vida= self.pokemon.vida_max
     def cambiar_poke(self,nuevo_pokemon):
         self.pokemon= nuevo_pokemon
-############################################################################################################################################
+
+#################################POKEMONS#################################
+
 class Pokemon:
     def __init__(self,especie,nickname=None):
         #Si el nickname retorna falso poner como nickname la especie
         self.especie=especie
-
+    def __str__(self):
+        return '{}\t\t{}\t\t{}\t\t{}\t\t{} '.format(self.especie,self.tipo,self.danho,self.vida,self.debilidad)     
     def atacar(self,pokerival):
         if   self.tipo == pokerival.debilidad:
             pokerival.vida -= int(self.danho + 1)
@@ -95,7 +86,7 @@ class Tipo_Planta(Pokemon):
             self.nickname= nickname
         else:
             self.nickname= especie 
-        super().__init__(especie,nickname=None)      
+        super().__init__(especie,nickname=None) 
     tipo="planta"
     danho= random.randint(3,6)
     vida=random.randint(6,12)
@@ -104,4 +95,3 @@ class Tipo_Planta(Pokemon):
     def atacar(self, pokemon):
         print("{} Usó Látigo cepa en {}!".format(self.especie, pokemon.especie))
         return super().atacar(pokemon)
-
